@@ -7,6 +7,24 @@
 <body>
 </body>
 <script>
-    
+// computer's choice
+    function computerPlay() {
+    rps = Math.floor(Math.random()*3+1)
+    switch (rps) {
+        case 1:
+            return 'Rock';
+            break;
+        case  2:
+            return 'Paper';
+            break;
+        case  3:
+            return 'Scissors';
+            break;
+    }
+    }
+// a single round
+   
+
+    console.log(computerPlay())
 </script>    
 </html>
