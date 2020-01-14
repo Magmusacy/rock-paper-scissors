@@ -1,1 +1,1 @@
-c00l game
+ta wersja jeszcze nie działa zbyt dobrze :?////

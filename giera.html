@@ -7,6 +7,7 @@
 <body>
 </body>
 <script>
+
 // computer's choice
     function computerPlay() {
     rps = Math.floor(Math.random()*3+1)
@@ -23,28 +24,40 @@
     }
     }
 // a single round
-    function singleRound(playerSelection, computerSelection) {
-        playerSelection = playerSelection.toUpperCase();
+    function singleRound(question, computerSelection) {
+        playerSelection = question.toUpperCase();
         switch(computerSelection) {
             case 'Rock':
-            if (playerSelection === 'ROCK') { return 'It\'s a tie :O'}
-            if (playerSelection === 'PAPER') { return 'You won paper beats rock'}
-            if (playerSelection === 'SCISSORS') { return 'You won, Rock beats scissors'}
+            if (playerSelection == 'ROCK') { return 'It\'s a tie :O'}
+            if (playerSelection == 'PAPER') { return 'You won paper beats rock'}
+            if (playerSelection == 'SCISSORS') { return 'You won, Rock beats scissors'}
             break;
             case 'Paper':
-            if (playerSelection === 'ROCK') {return 'You won, paper beats rock'}
-            if (playerSelection === 'PAPER') {return 'It\'s a tie :O'}
-            if (playerSelection === 'SCISSORS') {return 'You won, Scissors beat Paper'}
+            if (playerSelection == 'ROCK') {return 'You won, paper beats rock'}
+            if (playerSelection == 'PAPER') {return 'It\'s a tie :O'}
+            if (playerSelection == 'SCISSORS') {return 'You won, Scissors beat Paper'}
             break;          
             case 'Scissors':
-            if (playerSelection === 'ROCK') {return 'You won! Rock beats scissors'}
-            if (playerSelection === 'PAPER') {return 'You lost! Scissors beat Paper'}
-            if (playerSelection === 'SCISSORS') {return 'it\'s a tie! :OOO'}
+            if (playerSelection == 'ROCK') {return 'You won! Rock beats scissors'}
+            if (playerSelection == 'PAPER') {return 'You lost! Scissors beat Paper'}
+            if (playerSelection == 'SCISSORS') {return 'it\'s a tie! :OOO'}
             break;
     }
     }
-playerSelection = 'scissorS'
-computerSelection = computerPlay()
-console.log(singleRound(playerSelection, computerSelection))
+question = prompt("Paper or rock?")
+computerSelection = computerPlay();
+
+//5 round game
+    function game() {
+        console.log(singleRound(question, computerSelection))
+        console.log(singleRound(question, computerSelection))
+        console.log(singleRound(question, computerSelection))
+        console.log(singleRound(question, computerSelection))
+        console.log(singleRound(question, computerSelection))
+
+    }
+
+game()
+
 </script>
 </html>
