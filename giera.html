@@ -10,7 +10,7 @@
 
 // computer's choice
     function computerPlay() {
-    rps = Math.floor(Math.random()*3+1)
+    let rps = Math.floor(Math.random()*3+1)
     switch (rps) {
         case 1:
             return 'Rock';
@@ -23,41 +23,48 @@
             break;
     }
     }
-// a single round
-    function singleRound(question, computerSelection) {
-        playerSelection = question.toUpperCase();
-        switch(computerSelection) {
+    let computerPoints = 0;
+    let playerPoints = 0;
+    let playerSelection = "";
+    let computerSelection = computerPlay;
+
+    function singleRound(playerSelection, computerSelection) {
+        playerSelection = prompt("Rock, Paper or Scissors?",'').toUpperCase();
+        switch(computerSelection()) {
             case 'Rock':
-            if (playerSelection == 'ROCK') { return 'It\'s a tie :O'}
-            if (playerSelection == 'PAPER') { return 'You won paper beats rock'}
-            if (playerSelection == 'SCISSORS') { return 'You won, Rock beats scissors'}
+            if (playerSelection === 'ROCK') { return `It\'s a tie :O ^your score^ - ${playerPoints}, ^computer's score^ - ${computerPoints}`}
+            else if (playerSelection === 'PAPER') { return `You lost paper beats rock ^your score^ - ${playerPoints}, ^computer's score^ - ${++computerPoints}`}
+            else if (playerSelection === 'SCISSORS') { return `You won, Rock beats scissors ^your score^ - ${++playerPoints}, ^computer's score^ - ${computerPoints}`}
             break;
             case 'Paper':
-            if (playerSelection == 'ROCK') {return 'You won, paper beats rock'}
-            if (playerSelection == 'PAPER') {return 'It\'s a tie :O'}
-            if (playerSelection == 'SCISSORS') {return 'You won, Scissors beat Paper'}
+            if (playerSelection == 'ROCK') {return `You lost, paper beats rock ^your score^ - ${playerPoints}, ^computer's score^ - ${++computerPoints}`}
+            else if (playerSelection === 'PAPER') {return `It\'s a tie :O ^your score^ - ${playerPoints}, ^computer's score^ - ${computerPoints}`}
+            else if (playerSelection === 'SCISSORS') {return `You won, Scissors beat Paper ^your score^ - ${++playerPoints}, ^computer's score^ - ${computerPoints}`}
             break;          
             case 'Scissors':
-            if (playerSelection == 'ROCK') {return 'You won! Rock beats scissors'}
-            if (playerSelection == 'PAPER') {return 'You lost! Scissors beat Paper'}
-            if (playerSelection == 'SCISSORS') {return 'it\'s a tie! :OOO'}
+            if (playerSelection === 'ROCK') {return `You won! Rock beats scissors ^your score^ - ${++playerPoints}, ^computer's score^ - ${computerPoints}`}
+            else if (playerSelection === 'PAPER') {return `You lost! Scissors beat Paper ^your score^ - ${playerPoints}, ^computer's score^ - ${++computerPoints}`}
+            else if (playerSelection === 'SCISSORS') {return `it\'s a tie! :OOO ^your score^ - ${playerPoints}, ^computer's score^ - ${computerPoints}`}
             break;
     }
     }
-question = prompt("Paper or rock?")
-computerSelection = computerPlay();
 
-//5 round game
-    function game() {
-        console.log(singleRound(question, computerSelection))
-        console.log(singleRound(question, computerSelection))
-        console.log(singleRound(question, computerSelection))
-        console.log(singleRound(question, computerSelection))
-        console.log(singleRound(question, computerSelection))
 
+   function game() {
+        for (let i = 0; i<5; i++){
+        console.log(singleRound(playerSelection, computerSelection))
+        }
+        if(playerPoints > computerPoints) {
+            console.log("Congratulations!!! you won this EPIC battle with " + playerPoints + " points while the computer lost miserably with "+ computerPoints + " points")
+        }
+        else if(playerPoints < computerPoints) {
+            console.log("Not gonna lie, you are pretty bad at this because you lost with " + playerPoints +" points while the computer won like a PRO with "+ computerPoints + " points")
+        }
+        else console.log("It's a draw ¯\_(ツ)_/¯")
     }
-
-game()
+    game()
+    
+    
 
 </script>
 </html>
