@@ -1,1 +1,1 @@
-ta wersja jeszcze nie działa zbyt dobrze :?////
+rock paper scissors web console game 
