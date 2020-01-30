@@ -3,68 +3,25 @@
 <head>
     <title>Rock Paper Scissors</title>
     <meta charset="utf-8">
+    <link href="UI.css" rel="stylesheet">
+    
 </head>
 <body>
+    <div id="player_btn">
+        <h1>PLAYER SELECTION</h1>
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
+    <div id="player_points"><p id="pp"></p></div>
+    <div id="computer_btn">
+        <h1>COMPUTER SELECTION</h1>
+        <button id="comprock" class="unclickable">Rock</button>
+        <button id="comppaper" class="unclickable">Paper</button>
+        <button id="compscissors" class="unclickable">Scissors</button>
+    </div>
+    <div id="comp_points"><p id="cp"></p></div>
+    <div id="result"></div>
 </body>
-<script>
-
-// computer's choice
-    function computerPlay() {
-    let rps = Math.floor(Math.random()*3+1)
-    switch (rps) {
-        case 1:
-            return 'Rock';
-            break;
-        case  2:
-            return 'Paper';
-            break;
-        case  3:
-            return 'Scissors';
-            break;
-    }
-    }
-    let computerPoints = 0;
-    let playerPoints = 0;
-    let playerSelection = "";
-    let computerSelection = computerPlay;
-
-    function singleRound(playerSelection, computerSelection) {
-        playerSelection = prompt("Rock, Paper or Scissors?",'').toUpperCase();
-        switch(computerSelection()) {
-            case 'Rock':
-            if (playerSelection === 'ROCK') { return `It\'s a tie :O ^your score^ - ${playerPoints}, ^computer's score^ - ${computerPoints}`}
-            else if (playerSelection === 'PAPER') { return `You lost paper beats rock ^your score^ - ${playerPoints}, ^computer's score^ - ${++computerPoints}`}
-            else if (playerSelection === 'SCISSORS') { return `You won, Rock beats scissors ^your score^ - ${++playerPoints}, ^computer's score^ - ${computerPoints}`}
-            break;
-            case 'Paper':
-            if (playerSelection == 'ROCK') {return `You lost, paper beats rock ^your score^ - ${playerPoints}, ^computer's score^ - ${++computerPoints}`}
-            else if (playerSelection === 'PAPER') {return `It\'s a tie :O ^your score^ - ${playerPoints}, ^computer's score^ - ${computerPoints}`}
-            else if (playerSelection === 'SCISSORS') {return `You won, Scissors beat Paper ^your score^ - ${++playerPoints}, ^computer's score^ - ${computerPoints}`}
-            break;          
-            case 'Scissors':
-            if (playerSelection === 'ROCK') {return `You won! Rock beats scissors ^your score^ - ${++playerPoints}, ^computer's score^ - ${computerPoints}`}
-            else if (playerSelection === 'PAPER') {return `You lost! Scissors beat Paper ^your score^ - ${playerPoints}, ^computer's score^ - ${++computerPoints}`}
-            else if (playerSelection === 'SCISSORS') {return `it\'s a tie! :OOO ^your score^ - ${playerPoints}, ^computer's score^ - ${computerPoints}`}
-            break;
-    }
-    }
-
-
-   function game() {
-        for (let i = 0; i<5; i++){
-        console.log(singleRound(playerSelection, computerSelection))
-        }
-        if(playerPoints > computerPoints) {
-            console.log("Congratulations!!! you won this EPIC battle with " + playerPoints + " points while the computer lost miserably with "+ computerPoints + " points")
-        }
-        else if(playerPoints < computerPoints) {
-            console.log("Not gonna lie, you are pretty bad at this because you lost with " + playerPoints +" points while the computer won like a PRO with "+ computerPoints + " points")
-        }
-        else console.log("It's a draw ¯\_(ツ)_/¯")
-    }
-    game()
-    
-    
-
-</script>
+<script src="javascript.js"></script>
 </html>
